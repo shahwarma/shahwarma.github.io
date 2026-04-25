@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal portfolio — research, experience, and more.">
+    <title>SHAHMEER — Terminal</title>
+
+    <!-- Google Fonts: VT323 for terminal feel, Share Tech Mono as fallback -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- CRT Overlay Effects -->
+    <div class="crt-overlay" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <!-- Main Container -->
+    <div class="terminal-frame">
+
+        <!-- Header / Navigation -->
+        <header class="terminal-header">
+            <div class="header-name">
+                <span class="prompt">&gt;</span> SHAHMEER<span class="cursor-blink">_</span>
+            </div>
+            <nav class="header-nav" aria-label="Main navigation">
+                <button class="nav-btn active" data-tab="about">[ABOUT]</button>
+                <button class="nav-btn" data-tab="research">[RESEARCH]</button>
+                <button class="nav-btn" data-tab="hobbies">[HOBBIES]</button>
+                <button class="nav-btn" data-tab="experience">[EXPERIENCE]</button>
+            </nav>
+        </header>
+
+        <div class="terminal-divider" aria-hidden="true">
+            ════════════════════════════════════════════════════════════════════════════════</div>
+
+        <!-- Tab Content Panels -->
+        <main class="terminal-body">
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- ABOUT TAB                                   -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section id="tab-about" class="tab-panel active">
+                <h1 class="section-heading">> ABOUT_ME <span class="heading-decoration">─────────────────────────</span>
+                </h1>
+
+                <div class="intro-container">
+                    <div class="ascii-art hover-effect">
+                        <span class="apple-green"> -/+:. </span>
+                        <span class="apple-green"> :++++. </span>
+                        <span class="apple-green"> /+++/. </span>
+                        <span class="apple-green"> .:-::- .+/:-``.::- </span>
+                        <span class="apple-green"> .:/++++++/::::/++++++/:` </span>
+                        <span class="apple-yellow"> .:///////////////////////:` </span>
+                        <span class="apple-yellow"> ////////////////////////` </span>
+                        <span class="apple-orange"> -+++++++++++++++++++++++` </span>
+                        <span class="apple-orange"> /++++++++++++++++++++++/ </span>
+                        <span class="apple-red"> /sssssssssssssssssssssss. </span>
+                        <span class="apple-red"> :ssssssssssssssssssssssss- </span>
+                        <span class="apple-purple"> osssssssssssssssssssssssso/` </span>
+                        <span class="apple-purple"> `syyyyyyyyyyyyyyyyyyyyyyyy+` </span>
+                        <span class="apple-blue"> `ossssssssssssssssssssss/ </span>
+                        <span class="apple-blue"> :ooooooooooooooooooo+. </span>
+                        <span class="apple-blue"> `:+oo+/:-..-:/+o+/- </span>
+                    </div>
+
+                    <div class="about-intro hover-effect">
+                        <p class="terminal-text typewriter" data-speed="15">
+                            <!-- ✏️ EDIT YOUR INTRO HERE -->
+                            Hello, I'm Shahmeer — a researcher, engineer, and builder of things.
+                            I work at the intersection of technology and curiosity, always looking
+                            for the next hard problem worth solving. When I'm not deep in code or
+                            papers, you'll find me exploring new ideas and tinkering with systems.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="about-devtools hover-effect">
+                    <h2 class="subsection-heading">> DEV_TOOLS <span
+                            class="heading-decoration">────────────────────────</span></h2>
+                    <ul class="devtools-list">
+                        <li><span class="meta-label">LANGUAGES:</span> Python, JavaScript, C++, Rust</li>
+                        <li><span class="meta-label">FRAMEWORKS:</span> FastAPI, Hotwire, TailwindCSS</li>
+                        <li><span class="meta-label">DATABASES:</span> PostgreSQL, Redis, SQLite</li>
+                        <li><span class="meta-label">INFRA:</span> Docker, Linux, GitHub Actions</li>
+                    </ul>
+                </div>
+
+                <div class="about-resume hover-effect">
+                    <h2 class="subsection-heading">> RESUME <span
+                            class="heading-decoration">───────────────────────────</span></h2>
+                    <div class="resume-embed">
+                        <!--
+              ✏️ TO UPDATE YOUR RESUME:
+              1. Place your resume PDF in the assets/ folder
+              2. Name it resume.pdf (or update the path below)
+            -->
+                        <object data="assets/resume.pdf" type="application/pdf" class="pdf-viewer"
+                            aria-label="Resume PDF">
+                            <p class="terminal-text fallback-text">
+                                PDF viewer not supported.
+                                <a href="assets/resume.pdf" class="terminal-link" download>Download resume.pdf</a>
+                            </p>
+                        </object>
+                    </div>
+                </div>
+
+                <div class="about-links">
+                    <h2 class="subsection-heading">> LINKS <span
+                            class="heading-decoration">────────────────────────────</span></h2>
+                    <ul class="link-list">
+                        <!-- ✏️ EDIT YOUR LINKS HERE -->
+                        <li><span class="link-label">EMAIL</span> <a href="mailto:you@example.com"
+                                class="terminal-link">you@example.com</a></li>
+                        <li><span class="link-label">GITHUB</span> <a href="https://github.com/" class="terminal-link"
+                                target="_blank" rel="noopener">github.com/yourusername</a></li>
+                        <li><span class="link-label">LINKEDIN</span> <a href="https://linkedin.com/in/"
+                                class="terminal-link" target="_blank" rel="noopener">linkedin.com/in/yourusername</a>
+                        </li>
+                        <li><span class="link-label">TWITTER</span> <a href="https://twitter.com/" class="terminal-link"
+                                target="_blank" rel="noopener">@yourhandle</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- RESEARCH TAB                                -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section id="tab-research" class="tab-panel">
+                <h1 class="section-heading">> RESEARCH <span class="heading-decoration">────────────────────────</span>
+                </h1>
+
+                <div class="research-substack">
+                    <p class="terminal-text">
+                        Read my long-form writing on
+                        <a href="https://substack.com/@yourname" class="terminal-link" target="_blank"
+                            rel="noopener">Substack →</a>
+                    </p>
+                </div>
+
+                <div class="research-papers">
+                    <h2 class="subsection-heading">> PUBLICATIONS <span
+                            class="heading-decoration">─────────────────────</span></h2>
+
+                    <!--
+            ✏️ TO ADD A PAPER: Copy the <article> block below and fill in your details.
+               Remove or duplicate as needed.
+          -->
+                    <article class="paper-entry hover-effect">
+                        <h3 class="paper-title">» Paper Title Goes Here</h3>
+                        <p class="paper-meta">
+                            <span class="meta-label">DOI:</span>
+                            <a href="https://doi.org/10.xxxx/xxxxx" class="terminal-link" target="_blank"
+                                rel="noopener">10.xxxx/xxxxx</a>
+                        </p>
+                        <p class="paper-intro terminal-text">
+                            Brief description of the paper — what problem it addresses,
+                            the methodology, and key findings. Keep it to 2-3 sentences.
+                        </p>
+                        <a href="#" class="terminal-link paper-link">[READ FULL PAPER →]</a>
+                    </article>
+
+                    <article class="paper-entry hover-effect">
+                        <h3 class="paper-title">» Another Publication Title</h3>
+                        <p class="paper-meta">
+                            <span class="meta-label">DOI:</span>
+                            <a href="https://doi.org/10.xxxx/xxxxx" class="terminal-link" target="_blank"
+                                rel="noopener">10.xxxx/xxxxx</a>
+                        </p>
+                        <p class="paper-intro terminal-text">
+                            Another brief description of the paper.
+                        </p>
+                        <a href="#" class="terminal-link paper-link">[READ FULL PAPER →]</a>
+                    </article>
+
+                    <!-- Add more <article class="paper-entry"> blocks as needed -->
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- HOBBIES TAB                                 -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section id="tab-hobbies" class="tab-panel">
+                <h1 class="section-heading">> HOBBIES <span class="heading-decoration">─────────────────────────</span>
+                </h1>
+
+                <!--
+          ✏️ TO ADD/EDIT HOBBIES: Edit or duplicate the <div class="hobby-entry"> blocks.
+        -->
+                <div class="hobby-entry hover-effect">
+                    <h2 class="hobby-title">» Hobby One</h2>
+                    <p class="terminal-text">
+                        Write a short paragraph about this hobby or interest. What draws you
+                        to it, what you've done, and what you find fascinating about it.
+                    </p>
+                </div>
+
+                <div class="hobby-entry hover-effect">
+                    <h2 class="hobby-title">» Hobby Two</h2>
+                    <p class="terminal-text">
+                        Another hobby description. Keep it personal and authentic — this
+                        section humanizes you beyond your professional work.
+                    </p>
+                </div>
+
+                <div class="hobby-entry hover-effect">
+                    <h2 class="hobby-title">» Hobby Three</h2>
+                    <p class="terminal-text">
+                        A third hobby or interest. These entries are easy to add or remove —
+                        just copy or delete the hobby-entry block.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- EXPERIENCE TAB                              -->
+            <!-- ═══════════════════════════════════════════ -->
+            <section id="tab-experience" class="tab-panel">
+                <h1 class="section-heading">> WORK_EXPERIENCE <span class="heading-decoration">────────────────</span>
+                </h1>
+
+                <!--
+          ✏️ TO ADD/EDIT EXPERIENCE: Edit or duplicate the <article class="job-entry"> blocks.
+        -->
+                <article class="job-entry hover-effect">
+                    <div class="job-header">
+                        <h2 class="job-title">» Job Title</h2>
+                        <span class="job-date">2024 — PRESENT</span>
+                    </div>
+                    <p class="job-company">Company Name · Location</p>
+                    <p class="terminal-text">
+                        Describe your role, responsibilities, and key accomplishments.
+                        Focus on impact and outcomes. 2-4 sentences is ideal.
+                    </p>
+                    <ul class="job-highlights">
+                        <li>Key achievement or responsibility</li>
+                        <li>Another highlight of your work here</li>
+                        <li>Technologies or methodologies used</li>
+                    </ul>
+                </article>
+
+                <article class="job-entry hover-effect">
+                    <div class="job-header">
+                        <h2 class="job-title">» Previous Role</h2>
+                        <span class="job-date">2022 — 2024</span>
+                    </div>
+                    <p class="job-company">Previous Company · Location</p>
+                    <p class="terminal-text">
+                        Description of your earlier role and what you accomplished.
+                    </p>
+                    <ul class="job-highlights">
+                        <li>Key achievement</li>
+                        <li>Another highlight</li>
+                    </ul>
+                </article>
+
+                <article class="job-entry hover-effect">
+                    <div class="job-header">
+                        <h2 class="job-title">» Earlier Position</h2>
+                        <span class="job-date">2020 — 2022</span>
+                    </div>
+                    <p class="job-company">Another Company · Location</p>
+                    <p class="terminal-text">
+                        Description of this role.
+                    </p>
+                    <ul class="job-highlights">
+                        <li>Accomplishment</li>
+                        <li>Another accomplishment</li>
+                    </ul>
+                </article>
+
+                <!-- Add more <article class="job-entry"> blocks as needed -->
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <div class="terminal-divider" aria-hidden="true">
+            ════════════════════════════════════════════════════════════════════════════════</div>
+        <footer class="terminal-footer">
+            <span class="footer-status">SYS_OK</span>
+            <span class="footer-info">© 2026 SHAHMEER</span>
+        </footer>
+
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
