@@ -1,0 +1,489 @@
+:root {
+    --bg-color: #050505;
+    --text-color: #ffb000;
+    /* Amber/Orange */
+    --text-dim: #cc8c00;
+    --text-glow: 0 0 5px rgba(255, 176, 0, 0.6), 0 0 1px rgba(255, 176, 0, 0.8);
+    --crt-flicker: rgba(255, 176, 0, 0.05);
+
+    --font-main: 'VT323', monospace;
+    --font-fallback: 'Share Tech Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main), var(--font-fallback);
+    font-size: 22px;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+    text-shadow: var(--text-glow);
+    position: relative;
+}
+
+::selection {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-shadow: none;
+}
+
+/* CRT Effects */
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+            rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg,
+            rgba(255, 0, 0, 0.06),
+            rgba(0, 255, 0, 0.02),
+            rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 6px 100%;
+    pointer-events: none;
+    z-index: 100;
+    animation: flicker 0.15s infinite;
+}
+
+.vignette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    box-shadow: 0 0 150px rgba(0, 0, 0, 0.9) inset;
+    pointer-events: none;
+    z-index: 99;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 0.95;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.95;
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Layout */
+.terminal-frame {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.header-name {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.prompt {
+    color: var(--text-dim);
+}
+
+.cursor-blink {
+    animation: blink 1s step-end infinite;
+}
+
+/* Navigation */
+.header-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-family: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    transition: all 0.2s ease;
+    text-shadow: var(--text-glow);
+}
+
+.nav-btn:hover {
+    color: var(--text-color);
+    background-color: rgba(255, 176, 0, 0.1);
+}
+
+.nav-btn.active {
+    color: var(--bg-color);
+    background-color: var(--text-color);
+    text-shadow: none;
+}
+
+.terminal-divider {
+    color: var(--text-dim);
+    margin: 1.5rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+    user-select: none;
+}
+
+/* Content Area */
+.terminal-body {
+    min-height: 60vh;
+}
+
+.tab-panel {
+    display: none;
+    animation: scanline-reveal 0.5s ease-out forwards;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+@keyframes scanline-reveal {
+    0% {
+        opacity: 0;
+        transform: translateY(10px) scaleY(1.02);
+        filter: blur(2px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scaleY(1);
+        filter: blur(0);
+    }
+}
+
+/* Common Text Elements */
+.section-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.subsection-heading {
+    font-size: 1.2rem;
+    margin: 2rem 0 1rem;
+    color: var(--text-dim);
+}
+
+.heading-decoration {
+    color: var(--text-dim);
+    overflow: hidden;
+    flex-grow: 1;
+    white-space: nowrap;
+}
+
+.terminal-text {
+    margin-bottom: 1rem;
+    max-width: 800px;
+}
+
+.terminal-link {
+    color: var(--text-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text-dim);
+    transition: all 0.2s ease;
+}
+
+.terminal-link:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-shadow: none;
+}
+
+/* Resume Viewer */
+.resume-embed {
+    margin-top: 1rem;
+    border: 1px solid var(--text-dim);
+    padding: 2px;
+    background: rgba(255, 176, 0, 0.05);
+}
+
+.pdf-viewer {
+    width: 100%;
+    height: 600px;
+    border: none;
+    display: block;
+}
+
+.fallback-text {
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Link List */
+.link-list {
+    list-style-type: none;
+}
+
+.link-list li {
+    margin-bottom: 0.5rem;
+}
+
+.link-label {
+    display: inline-block;
+    width: 100px;
+    color: var(--text-dim);
+}
+
+/* Papers / Experience Entries */
+.paper-entry,
+.job-entry,
+.hobby-entry {
+    margin-bottom: 2rem;
+    border-left: 2px solid var(--text-dim);
+    padding-left: 1rem;
+}
+
+.paper-title,
+.hobby-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+}
+
+.paper-meta {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.meta-label {
+    margin-right: 0.5rem;
+}
+
+.paper-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin-bottom: 0.25rem;
+}
+
+.job-title {
+    font-size: 1.3rem;
+}
+
+.job-date {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+.job-company {
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+}
+
+.job-highlights {
+    list-style-type: none;
+    margin-top: 0.5rem;
+}
+
+.job-highlights li::before {
+    content: "- ";
+    color: var(--text-dim);
+}
+
+/* Footer */
+.terminal-footer {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+.footer-status {
+    animation: blink 2s step-end infinite;
+}
+
+/* Hover and Animations */
+.hover-effect {
+    transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease;
+}
+
+.hover-effect:hover {
+    transform: translateX(5px);
+    text-shadow: 0 0 10px rgba(255, 176, 0, 1), 0 0 20px rgba(255, 176, 0, 0.8);
+}
+
+.ascii-art {
+    white-space: pre;
+    font-family: var(--font-main);
+    color: var(--text-color);
+    font-size: 0.8rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Apple Logo Colors */
+.apple-green {
+    color: #61BB46;
+    text-shadow: 0 0 8px #61BB46;
+}
+
+.apple-yellow {
+    color: #FDB827;
+    text-shadow: 0 0 8px #FDB827;
+}
+
+.apple-orange {
+    color: #F5821F;
+    text-shadow: 0 0 8px #F5821F;
+}
+
+.apple-red {
+    color: #E03A3E;
+    text-shadow: 0 0 8px #E03A3E;
+}
+
+.apple-purple {
+    color: #963D97;
+    text-shadow: 0 0 8px #963D97;
+}
+
+.apple-blue {
+    color: #009DDC;
+    text-shadow: 0 0 8px #009DDC;
+}
+
+/* Typewriter styles */
+.typing-cursor {
+    display: inline-block;
+    width: 0.6em;
+    height: 1.2em;
+    background-color: var(--text-color);
+    vertical-align: bottom;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+}
+
+.typewriter-letter {
+    display: inline;
+}
+
+.typewriter-letter.glow {
+    animation: flash-glow 0.3s ease-out;
+}
+
+@keyframes flash-glow {
+    0% {
+        text-shadow: 0 0 15px rgba(255, 176, 0, 1), 0 0 30px #ffffff;
+        color: #ffffff;
+    }
+
+    100% {
+        text-shadow: var(--text-glow);
+        color: var(--text-color);
+    }
+}
+
+/* Intro Layout */
+.intro-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.intro-container .ascii-art {
+    text-align: left;
+    margin-bottom: 0;
+    flex: 0 0 auto;
+}
+
+.intro-container .about-intro {
+    text-align: right;
+    flex: 1 1 auto;
+}
+
+.intro-container .terminal-text {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right;
+}
+
+/* DevTools List */
+.devtools-list {
+    list-style-type: none;
+}
+
+.devtools-list li {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .intro-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .intro-container .ascii-art {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .intro-container .about-intro {
+        text-align: left;
+    }
+
+    .intro-container .terminal-text {
+        text-align: left;
+        margin-left: 0;
+    }
+
+    .terminal-frame {
+        padding: 1rem;
+    }
+
+    .header-nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .nav-btn {
+        font-size: 1rem;
+    }
+}
