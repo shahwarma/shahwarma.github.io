@@ -352,7 +352,21 @@ body {
     font-size: 0.8rem;
     line-height: 1.1;
     margin-bottom: 2rem;
-    text-align: center;
+    text-align: left;
+    transform: scaleX(1.4);
+    transform-origin: left top;
+    margin-right: 2rem;
+}
+
+.ascii-art pre.apple-logo {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+    background: none;
+    color: inherit;
 }
 
 /* Apple Logo Colors */
@@ -420,9 +434,9 @@ body {
 /* Intro Layout */
 .intro-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 4rem;
     margin-bottom: 2rem;
 }
 
@@ -433,14 +447,15 @@ body {
 }
 
 .intro-container .about-intro {
-    text-align: right;
+    text-align: left;
     flex: 1 1 auto;
+    padding-top: 0;
 }
 
 .intro-container .terminal-text {
-    margin-left: auto;
+    margin-left: 0;
     margin-right: 0;
-    text-align: right;
+    text-align: left;
 }
 
 /* DevTools List */
